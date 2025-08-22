@@ -45,6 +45,15 @@ class CategoriaController extends Controller
     public function show(string $id)
     {
         //
+        $categoria=Categoria::find($id);
+        if(!$categoria){
+            return response ()->json(
+                [
+                    'mensaje'=>'categoria no encontrada'
+                ]
+                );
+        }
+        return response()->json($categoria,200);
     }
 
     /**
